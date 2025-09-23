@@ -118,6 +118,8 @@ The functionalities of the application are classified according to their complex
 
 *Note: Additional attributes may be added during the development process if new requirements arise or to enhance the application’s functionality.
 
+![Inicio](Entidades%20TFG.png)
+
 ### User permissions:
 - Guest user: Can view all public information on the platform, including posts, comments, charts, and user profiles.
 - Registered user: In addition to guest permissions, can create posts, write comments, edit and delete their own posts and comments, upload a profile picture, recover their password, check their private information, and receive notifications and suggestions based on the recommendation algorithm.
