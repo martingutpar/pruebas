@@ -38,14 +38,20 @@ Planned technical aspects:
 The development of this project will follow a high-level iterative methodology, dividing the work into several clearly defined phases. Each phase has specific goals and deliverables, and the progress will be continuously monitored to ensure the quality and consistency of the implementation. This approach allows for incremental improvements, early detection of issues, and adaptation to feedback throughout the project.
 
 ### 📅 Phases
-- Phase 1 – Definition of functionalities:
+- Phase 1 – Definition of functionalities and screens:
 In this phase, the general and detailed functionalities of the application will be defined. Additionally, initial wireframes and navigation flow designs will be created to guide the structure and user experience.
 
-- Phase 2 – Configuration of technologies and development tools:
-Setup of the development environment, integration of frameworks and libraries, and periodic quality controls (code analysis, testing tools) will be performed.
+- Phase 2 – Repository, testing, and CI:
+A Git repository will be created, along with the client and server projects. The minimum functionality required to connect the client, server, and database will be implemented. Initial automated tests will be developed, and the Continuous Integration (CI) system will be configured.
 
-- Phases 3, 4, 5 – Iterative and incremental development:
-The application will be developed in small increments. Each iteration will implement features from the simplest to the more complex, allowing for continuous testing, feedback, and improvement. At the end of each phase, a version (release) of the application will be published for review and testing.
+- Phase 3 – Version 0.1: Basic functionality and Docker:
+The application will be extended to include all basic functionalities, together with their corresponding automated tests. The project will be containerized using Docker, and continuous delivery will be introduced. Version 0.1 of the application will then be released.
+
+- Phase 4 – Version 0.2: Intermediate functionality:
+The application will be expanded to include intermediate functionalities, together with their corresponding automated tests. The application will also be deployed in this phase, and version 0.2 will be released.
+
+- Phase 5 – Version 1.0: Advanced functionality:
+The application will be finalized with the advanced functionalities and released as version 1.0.
 
 - Phase 6 – Writing the final report:
 The memory/documentation of the project will be drafted, including objectives, design, implementation details, and conclusions.
@@ -72,7 +78,7 @@ The functionalities of the application are classified according to their complex
 
 ### Basic Functionalities
 |  Functionality  | Guest User | Registered User | Administartor |
-|---------|-------|-----|-----|
+|-----------------|------------|-----------------|---------------|
 | Registration/Login | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | View Post | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | View public profile | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
@@ -84,7 +90,7 @@ The functionalities of the application are classified according to their complex
 
 ### Intermediate Functionalities
 |  Functionality  | Guest User | Registered User | Administartor |
-|---------|-------|-----|-----|
+|-----------------|------------|-----------------|---------------|
 | View private profile data | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) (Only owned) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Create/Edit/Remove topics | ![No](https://img.shields.io/badge/No-red) | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | View charts | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
@@ -93,22 +99,51 @@ The functionalities of the application are classified according to their complex
 
 ### Advanced Functionalities
 |  Functionality  | Guest User | Registered User | Administartor |
-|---------|-------|-----|-----|
+|-----------------|------------|-----------------|---------------|
 | Recieve notifications | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) (Only owned) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Recommendation algorithm | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Password recovery | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Ban users | ![No](https://img.shields.io/badge/No-red) | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 
+## Analysis
+### Screens and navigation:
 
+### Entities:
+| Entity | Attributes | Description |
+| ------ | ---------- | ----------- |
+| User | `id`, `username`, `email`, `passwordHash`, `avatar`, `role`, `likePost`, `likeComment` | Represents a platform user. Can be a registered user or administrator. Stores authentication data, profile information, and permissions. |
+| Post | `id`, `title`, `content`, `createdAt`, `updatedAt`, `images`, `userId`, `topicsId`, `likes`, `usersThatLike` | Represents a discussion thread or contribution created by a registered user. It may include text, images, and likes. Linked to a topic and an author. |
+| Comment | `id`, `content`, `createdAt`, `updatedAt`, `userId`, `postId`, `likes`, `usersThatLike` | Represents a reply to a post. Written by registered users, it can also receive likes and is associated with both a post and an author. |
+| Topic | `id`, `name`, `description` | Groups posts under a common topic (Action Games, RPG, Indie or specific games). Facilitates navigation and content organization. |
+
+*Note: Additional attributes may be added during the development process if new requirements arise or to enhance the application’s functionality.
+
+### User permissions:
+- Guest user: Can view all public information on the platform, including posts, comments, charts, and user profiles.
+- Registered user: In addition to guest permissions, can create posts, write comments, edit and delete their own posts and comments, upload a profile picture, recover their password, check their private information, and receive notifications and suggestions based on the recommendation algorithm.
+- Administrator: Has full permissions, including those of registered users, plus the ability to edit or delete any post/comment, manage topics, and moderate user accounts.
+
+### Images:
+The User entity will support a profile picture. The Post entity may optionally include one or more images attached to the content.
+
+### Charts:
+A statistics section will be included to visualize community activity. For example, a bar chart will show the number of posts created per topic in the last month, and a line chart will display the evolution of total posts over time.
+
+### Complementary technology:
+The project will integrate email sending for password recovery and account-related notifications. Additionally, WebSockets will be used to enable real-time notifications, ensuring that users are immediately informed about interactions such as new comments, likes, or administrative updates.
+
+### Advanced algorithm or query:
+An advanced recommendation algorithm will be implemented to suggest relevant posts or categories to each user based on their past activity.
 
 ## 📌 Tracking / Progress
-Project blog: A blog will be maintained with announcements and updates about the development of the project.
-GitHub Project: A GitHub Project board will be used to manage tasks, track progress, and organize development activities.
+In order to keep track of the project: a blog will be maintained with announcements and updates about the development and a GitHub Project board will be used to manage tasks, track progress, and organize development activities.
+Project blog: 
+GitHub Project: 
 
 ## 👤 Author
 Introduction: This application is developed in the context of the Bachelor’s Degree Final Project for the Computer Science degree at the ETSII of URJC.
 Author and Supervisor:
 | Role | Name | Mail | GitHub |
-|---------|-----------|----------------------------|---------|
+|------|------|------|--------|
 | Student | Martín Gutiérrez Parada | m.gutierrezp.2022@alumnos.urjc.com | [GitHub](https://github.com/martingutpar) |
 | Tutor | Michel Maes Bermejo | michel.maes@urjc.es | [GitHub](https://github.com/Maes95) |
