@@ -1,8 +1,8 @@
 # Pruebas
-## Summary
+## 📝 Summary
 🎮 This video game forum web application is designed for players 👾 who want to share their experiences, discuss their favorite titles, and connect with other gamers around the world 🌍.
 Instead of a large generic forum where all kinds of unrelated topics are mixed ❌, this platform is focused exclusively on video games 🕹️, creating a dedicated space for players.
-The application lets users create posts ✍️, comment on discussions 💬, give likes 👍, and customize their profile with an avatar 👤. In addition, it offers structured categories by game 🎯, image uploads 📷, popularity charts 📊, notifications 🔔, and advanced features such as user reputation, trending posts, and real-time updates ⚡, providing a complete and organized platform for gamer interaction 🚀.
+The application lets users create posts ✍️, comment on discussions 💬, give likes 👍, and customize their profile with an avatar 👤. In addition, it offers structured categories by game 🎯, image uploads 📷, popularity charts 📊, notifications 🔔, and advanced features such as, trending posts and real-time updates ⚡, providing a complete and organized platform for gamer interaction 🚀.
 
 At this stage, only the functional and technical objectives of the application have been defined. The development and implementation of the system have not yet started.
 
@@ -26,7 +26,7 @@ From a technical perspective, the application is conceived as a modern web devel
 Planned technical aspects:
 1. Development with Spring Boot (Java) for business logic and REST APIs.
 2. Development of the frontend with Angular to create a dynamic, modular, and maintainable user interface, ensuring a smooth interaction with the backend through REST APIs.
-3. Relational database (MySQL) for managing users, posts, comments, and games.
+3. Relational database (MySQL) for managing users, posts, comments, and topics.
 4. Image upload implementation.
 5. Implementation of automated testing using JUnit for backend unit and integration tests, and Selenium for frontend end-to-end testing of the web interface.
 6. Integration of notifications via email and/or websockets.
@@ -76,7 +76,7 @@ A Gantt chart will be created to visually represent these phases, showing the sc
 ## 📋 Detailed Functionalities
 The functionalities of the application are classified according to their complexity and the type of user they target. They are divided into basic, intermediate, and advanced functionalities to clearly define their scope and purpose. *‘Only owned’ means the user can only modify or delete their own information.
 
-### Basic Functionalities
+### 🟢 Basic Functionalities
 |  Functionality  | Guest User | Registered User | Administartor |
 |-----------------|------------|-----------------|---------------|
 | Registration/Login | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
@@ -88,7 +88,7 @@ The functionalities of the application are classified according to their complex
 | Add topic to post | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Upload image to profile and post | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 
-### Intermediate Functionalities
+### 🟡 Intermediate Functionalities
 |  Functionality  | Guest User | Registered User | Administartor |
 |-----------------|------------|-----------------|---------------|
 | View private profile data | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) (Only owned) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
@@ -97,7 +97,7 @@ The functionalities of the application are classified according to their complex
 | View trending posts | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Admin posts and comments | ![No](https://img.shields.io/badge/No-red) | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 
-### Advanced Functionalities
+### 🔴 Advanced Functionalities
 |  Functionality  | Guest User | Registered User | Administartor |
 |-----------------|------------|-----------------|---------------|
 | Recieve notifications | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) (Only owned) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
@@ -105,10 +105,10 @@ The functionalities of the application are classified according to their complex
 | Password recovery | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Ban users | ![No](https://img.shields.io/badge/No-red) | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 
-## Analysis
-### Screens and navigation:
+## 📑 Analysis
+### 🖥️ Screens and navigation:
 
-### Entities:
+### 🧩 Entities:
 | Entity | Attributes | Description |
 | ------ | ---------- | ----------- |
 | User | `id`, `username`, `email`, `passwordHash`, `avatar`, `role`, `likePost`, `likeComment` | Represents a platform user. Can be a registered user or administrator. Stores authentication data, profile information, and permissions. |
@@ -118,23 +118,24 @@ The functionalities of the application are classified according to their complex
 
 *Note: Additional attributes may be added during the development process if new requirements arise or to enhance the application’s functionality.
 
+The following diagram shows the relationships between the main entities of the application.
 ![Inicio](Entidades%20TFG.png)
 
-### User permissions:
+### 🔑 User permissions:
 - Guest user: Can view all public information on the platform, including posts, comments, charts, and user profiles.
 - Registered user: In addition to guest permissions, can create posts, write comments, edit and delete their own posts and comments, upload a profile picture, recover their password, check their private information, and receive notifications and suggestions based on the recommendation algorithm.
 - Administrator: Has full permissions, including those of registered users, plus the ability to edit or delete any post/comment, manage topics, and moderate user accounts.
 
-### Images:
+### 🖼️ Images:
 The User entity will support a profile picture. The Post entity may optionally include one or more images attached to the content.
 
-### Charts:
+### 📈 Charts:
 A statistics section will be included to visualize community activity. For example, a bar chart will show the number of posts created per topic in the last month, and a line chart will display the evolution of total posts over time.
 
-### Complementary technology:
+### 💡 Complementary technology:
 The project will integrate email sending for password recovery and account-related notifications. Additionally, WebSockets will be used to enable real-time notifications, ensuring that users are immediately informed about interactions such as new comments, likes, or administrative updates.
 
-### Advanced algorithm or query:
+### 🧠 Advanced algorithm or query:
 An advanced recommendation algorithm will be implemented to suggest relevant posts or categories to each user based on their past activity.
 
 ## 📌 Tracking / Progress
