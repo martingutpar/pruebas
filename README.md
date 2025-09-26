@@ -1,4 +1,4 @@
-# Pruebas
+# PixelForum
 ## 📝 Summary
 🎮 This video game forum web application is designed for players 👾 who want to share their experiences, discuss their favorite titles, and connect with other gamers around the world 🌍.
 Instead of a large generic forum where all kinds of unrelated topics are mixed ❌, this platform is focused exclusively on video games 🕹️, creating a dedicated space for players.
@@ -83,7 +83,7 @@ The functionalities of the application are classified according to their complex
 | View Post | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | View public profile | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Create/Edit/Delete Post | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) (Only owned) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
-| Create/Edit/Delete Comment | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) (Only owned) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
+| Create/Edit/Delete Comment on posts | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) (Only owned) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Give likes | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Add topic to post | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Upload image to profile and post | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
@@ -91,6 +91,7 @@ The functionalities of the application are classified according to their complex
 ### 🟡 Intermediate Functionalities
 |  Functionality  | Guest User | Registered User | Administartor |
 |-----------------|------------|-----------------|---------------|
+| Comment on other comments | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | View private profile data | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) (Only owned) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Create/Edit/Remove topics | ![No](https://img.shields.io/badge/No-red) | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | View charts | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
@@ -113,7 +114,7 @@ The functionalities of the application are classified according to their complex
 | ------ | ---------- | ----------- |
 | User | `id`, `username`, `email`, `passwordHash`, `avatar`, `role`, `likePost`, `likeComment` | Represents a platform user. Can be a registered user or administrator. Stores authentication data, profile information, and permissions. |
 | Post | `id`, `title`, `content`, `createdAt`, `updatedAt`, `images`, `userId`, `topicsId`, `likes`, `usersThatLike` | Represents a discussion thread or contribution created by a registered user. It may include text, images, and likes. Linked to a topic and an author. |
-| Comment | `id`, `content`, `createdAt`, `updatedAt`, `userId`, `postId`, `likes`, `usersThatLike` | Represents a reply to a post. Written by registered users, it can also receive likes and is associated with both a post and an author. |
+| Comment | `id`, `content`, `createdAt`, `updatedAt`, `userId`, `postId`, `commentId`, `likes`, `usersThatLike` | Represents a reply to a post. Written by registered users, it can also receive likes and is always associated with both a post and an author and sometimes to other comment. |
 | Topic | `id`, `name`, `description` | Groups posts under a common topic (Action Games, RPG, Indie or specific games). Facilitates navigation and content organization. |
 
 *Note: Additional attributes may be added during the development process if new requirements arise or to enhance the application’s functionality.
@@ -144,7 +145,7 @@ Project blog:
 GitHub Project: 
 
 ## 👤 Author
-Introduction: This application is developed in the context of the Bachelor’s Degree Final Project for the Computer Science degree at the ETSII of URJC.
+This application is developed in the context of the Bachelor’s Degree Final Project for the Computer Science degree at the ETSII of URJC.
 Author and Supervisor:
 | Role | Name | Mail | GitHub |
 |------|------|------|--------|
