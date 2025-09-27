@@ -62,7 +62,7 @@ The final presentation for the defense will be prepared, including slides, demos
 ### ⏳ Timeline
 |  Phase  | Start | End |
 |---------|-------|-----|
-| Phase 1 | 17/09/2025 |  |
+| Phase 1 | 17/09/2025 | 27/09/2025 |
 | Phase 2 |  |  |
 | Phase 3 |  |  |
 | Phase 4 |  |  |
@@ -91,11 +91,11 @@ The functionalities of the application are classified according to their complex
 ### 🟡 Intermediate Functionalities
 |  Functionality  | Guest User | Registered User | Administartor |
 |-----------------|------------|-----------------|---------------|
+| View charts | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen)|
+| View trending posts | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Comment on other comments | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | View private profile data | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) (Only owned) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Create/Edit/Remove topics | ![No](https://img.shields.io/badge/No-red) | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
-| View charts | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
-| View trending posts | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 | Admin posts and comments | ![No](https://img.shields.io/badge/No-red) | ![No](https://img.shields.io/badge/No-red) | ![Yes](https://img.shields.io/badge/Yes-brightgreen) |
 
 ### 🔴 Advanced Functionalities
@@ -108,6 +108,9 @@ The functionalities of the application are classified according to their complex
 
 ## 📑 Analysis
 ### 🖥️ Screens and navigation:
+The following image provides a preliminary mockup of the web application, illustrating the overall design and aesthetics of the platform. From this feed, users will be able to navigate to all the main functionalities of the system.
+
+![Mockup](https://github.com/martingutpar/pruebas/blob/main/Images/Group%201-2.png)
 
 ### 🧩 Entities:
 | Entity | Attributes | Description |
@@ -120,6 +123,7 @@ The functionalities of the application are classified according to their complex
 *Note: Additional attributes may be added during the development process if new requirements arise or to enhance the application’s functionality.
 
 The following diagram shows the relationships between the main entities of the application.
+
 ![Inicio](Entidades%20TFG.png)
 
 ### 🔑 User permissions:
@@ -145,7 +149,7 @@ Project blog:
 GitHub Project: 
 
 ## 👤 Author
-This application is developed in the context of the Bachelor’s Degree Final Project for the Computer Science degree at the ETSII of URJC.
+This application is developed for my Degree's Final Project for the Computer Science degree at the ETSII of URJC.
 Author and Supervisor:
 | Role | Name | Mail | GitHub |
 |------|------|------|--------|
