@@ -1,6 +1,6 @@
 # 1️⃣ Introduction
 
-**PixelForum** is a web application 💬 designed as an interactive forum for video game enthusiasts 🎮.  
+**PixelForum** is a web application designed as an interactive forum for video game enthusiasts 🎮.  
 Its architecture follows a **Single Page Application (SPA)** model , where the client-side interface is dynamically rendered by the browser while the backend provides data through API REST.  
 
 The system is divided into three main layers:  
@@ -28,45 +28,33 @@ Continuous Integration and Deployment (CI/CD) pipelines are configured through *
 
 # 2️⃣ Execution Technologies
 
-- **Angular** — Framework for building the SPA interface and managing client-side routing. It consumes REST endpoints to render data dynamically.  
-  🌐 [Angular](https://angular.dev)
+- **Angular** — Framework for building the SPA interface and managing client-side routing. It consumes REST endpoints to render data dynamically. 🌐 [Angular](https://angular.dev)
   
-- **Java 21 (Oracle JDK)** — Runtime used to execute the backend Spring Boot application. Provides the Java Virtual Machine (JVM) and standard libraries.  
-  🌐 [Java](https://www.oracle.com/java/)
+- **Java 21 (Oracle JDK)** — Runtime used to execute the backend Spring Boot application. Provides the Java Virtual Machine (JVM) and standard libraries. 🌐 [Java](https://www.oracle.com/java/)
 
-- **Spring Boot** — Runtime framework for the backend, managing application lifecycle, dependency injection, and REST API execution.  
-  🌐 [Spring Boot](https://spring.io)
+- **Spring Boot** — Runtime framework for the backend, managing application lifecycle, dependency injection, and REST API execution. 🌐 [Spring Boot](https://spring.io)
 
-- **MySQL Server** — Database engine used to persist application data during runtime.  
-  🌐 [MySQL](https://www.mysql.com)
+- **MySQL Server** — Database engine used to persist application data during runtime. 🌐 [MySQL](https://www.mysql.com)
 
-- **Node.js** — Runtime environment for executing the Angular build (e.g., serving the frontend in production).  
-  🌐 [Node.js](https://nodejs.org)
+- **Node.js** — Runtime environment for executing the Angular build (e.g., serving the frontend in production). 🌐 [Node.js](https://nodejs.org)
 
-- **npm** — Package manager and execution tool for Angular scripts and frontend build tasks in production.  
-  🌐 [npm](https://www.npmjs.com)
+- **npm** — Package manager and execution tool for Angular scripts and frontend build tasks in production. 🌐 [npm](https://www.npmjs.com)
   
-- **Docker** — Container runtime that allows the application (backend, frontend, database) to run consistently across environments.  
-  🌐 [Docker](https://www.docker.com)
+- **Docker** — Container runtime that allows the application (backend, frontend, database) to run consistently across environments. 🌐 [Docker](https://www.docker.com)
 
 ---
 
 # 3️⃣ Tools
   
-- **Visual Studio Code (VS Code):** Main IDE used for developing both frontend (Angular) and backend (Spring Boot) modules, supporting extensions for Java, Docker, and Git integration.  
-  🌐 [Visual Studio Code](https://code.visualstudio.com)
+- **Visual Studio Code (VS Code):** Main IDE used for developing both frontend (Angular) and backend (Spring Boot) modules, supporting extensions for Java, Docker, and Git integration. 🌐 [Visual Studio Code](https://code.visualstudio.com)
 
-- **Git** — Version control system used to manage source code, track changes, and collaborate with team members.  
-  🌐 [Git](https://git-scm.com)
+- **Git** — Version control system used to manage source code, track changes, and collaborate with team members. 🌐 [Git](https://git-scm.com)
 
-- **GitHub** — Platform for hosting Git repositories, managing issues (Kanban board), pull requests, and CI/CD pipelines.  
-  🌐 [GitHub](https://github.com)
+- **GitHub** — Platform for hosting Git repositories, managing issues (Kanban board), pull requests, and CI/CD pipelines. 🌐 [GitHub](https://github.com)
 
-- **GitHub Actions:** Enables automated CI/CD workflows for testing and deployment.  
-  🌐 [https://github.com/features/actions](https://github.com/features/actions)
+- **GitHub Actions:** Enables automated CI/CD workflows for testing and deployment. 🌐 [https://github.com/features/actions](https://github.com/features/actions)
 
-- **Docker & Docker Compose:** Used for containerizing and orchestrating the services (frontend, backend, database) into a reproducible deployment environment.  
-  🌐 [https://www.docker.com](https://www.docker.com)
+- **Docker & Docker Compose:** Used for containerizing and orchestrating the services (frontend, backend, database) into a reproducible deployment environment. 🌐 [https://www.docker.com](https://www.docker.com)
 
 ---
 
@@ -75,8 +63,8 @@ Continuous Integration and Deployment (CI/CD) pipelines are configured through *
 ## Deployment Architecture
 
 The application follows a **microservices-inspired deployment architecture**, with independent processes for the backend, frontend, and database:
-- 🧠 **Backend (Spring Boot)** — Runs as an independent process exposing REST endpoints over **HTTPS**.
 - 🖥️ **Frontend (Angular)** — Runs as a separate process, served via **Node.js**, consuming the backend REST API.
+- 🧠 **Backend (Spring Boot)** — Runs as an independent process exposing REST endpoints over **HTTPS**.
 - 🗄️ **Database (MySQL)** — Runs as an independent process, accessed by the backend via the **JDBC protocol**.
 
 All services communicate using standard protocols: the frontend and backend interact via **REST over HTTPS** (backend on port **8443**, frontend on port **4200**), while the backend connects to the database using **TCP/IP** (MySQL on port **3306**).
@@ -84,36 +72,48 @@ All services communicate using standard protocols: the frontend and backend inte
 ## API REST
 
 The REST API documentation is automatically generated using **springdoc-openapi** and made available via Swagger UI.  
-An HTML version is hosted using [raw.githack.com](https://raw.githack.com), providing a live view of the API specification.
+An HTML version is hosted using [raw.githack.com](https://raw.githack.com), providing a live view of the API specification, here: 
 
 ---
 
 # 5️⃣ Quality Control
 
-## 🧪 Automated Testing
+This section describes the quality assurance strategy applied to **PixelForum**, including automated tests on both backend and frontend, system-level tests, API validation, and static code analysis using **SonarQube**.  
+The goal of these quality controls is to ensure reliability, security, maintainability, and functional correctness across all components of the SPA + REST API architecture.
 
-PixelForum includes both backend and frontend tests:  
+## Server tests (Backend)
+The backend (Spring Boot) includes automated tests that validate business logic, data access, and API behavior.
 
-| Test Type | Tool | Description |
-|------------|------|-------------|
-| 🧩 **Unit Tests** | JUnit 5 | Validate service and repository logic in isolation. |
-| 🔄 **Integration Tests** | Spring Boot Test + H2 | Test communication between controllers, services, and repositories. |
-| 🌐 **System Tests** | Selenium | Automate browser-based tests to verify UI interactions and full workflows. |
+### ✔️ Types of backend tests
+- **Unit tests (JUnit 5):** Validate isolated services and utility classes.  
+- **Integration tests (Spring Boot Test + H2):** Validate repositories, services, and controllers working together.  
+- **REST API tests (MockMvc):** Ensure each API endpoint behaves as expected.
 
-Each major feature (user login, posting, commenting, and moderation) has a corresponding set of test cases ensuring functionality and regression prevention.  
+### 📊 Backend testing statistics
+- **Total tests:** 
+- **Passing:** 
+- **Estimated coverage:**  
+  - Services: **~%**
+  - Controllers: **~%**
 
-📊 **Statistics:**  
-- ~80% code coverage in backend modules.  
-- Over 100 test cases executed automatically in CI pipelines.  
-- Test execution verified through GitHub Actions logs.  
+*Backend test screenshot here*
 
-## 🧩 Static Code Analysis
 
-- **Tool:** SonarLint  
-- **Metrics:** Analyzed code size ~15,000 lines across Java, TypeScript, and HTML.  
-- **Findings:** Code follows clean architecture principles with minimal code smells and no critical issues.  
+## Client tests (Frontend)
+The frontend (Angular) includes unit and integration tests that validate UI logic and service communication.
 
----
+### ✔️ Types of client tests
+- **Unit tests (Karma + Jasmine):** Validate Angular components and services with mocks.  
+- **Integration tests:** Validate templates, inputs, and data bindings.
+
+### 📊 Frontend testing statistics
+- **Total tests:** 
+- **Passing:** 
+- **Estimated coverage:**  
+  - Components: **~%**
+  - Services: **~%**
+
+*Frontend screenshot here*
 
 # 6️⃣ Development Process
 
