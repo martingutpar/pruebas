@@ -36,7 +36,7 @@ Continuous Integration and Deployment (CI/CD) pipelines are configured through *
 
 - **MySQL Server** — Database engine used to persist application data during runtime. 🌐 [MySQL](https://www.mysql.com)
 
-- **Node.js** — Runtime environment for executing the Angular build (e.g., serving the frontend in production). 🌐 [Node.js](https://nodejs.org)
+- **Node.js** — Runtime environment for executing the Angular build (serving the frontend in production). 🌐 [Node.js](https://nodejs.org)
 
 - **npm** — Package manager and execution tool for Angular scripts and frontend build tasks in production. 🌐 [npm](https://www.npmjs.com)
   
@@ -52,9 +52,9 @@ Continuous Integration and Deployment (CI/CD) pipelines are configured through *
 
 - **GitHub** — Platform for hosting Git repositories, managing issues (Kanban board), pull requests, and CI/CD pipelines. 🌐 [GitHub](https://github.com)
 
-- **GitHub Actions:** Enables automated CI/CD workflows for testing and deployment. 🌐 [https://github.com/features/actions](https://github.com/features/actions)
+- **GitHub Actions:** Enables automated CI/CD workflows for testing and deployment. 🌐 [Github actions](https://github.com/features/actions)
 
-- **Docker & Docker Compose:** Used for containerizing and orchestrating the services (frontend, backend, database) into a reproducible deployment environment. 🌐 [https://www.docker.com](https://www.docker.com)
+- **Docker & Docker Compose:** Used for containerizing and orchestrating the services (frontend, backend, database) into a reproducible deployment environment. 🌐 [Docker](https://www.docker.com)
 
 ---
 
@@ -72,7 +72,8 @@ All services communicate using standard protocols: the frontend and backend inte
 ## API REST
 
 The REST API documentation is automatically generated using **springdoc-openapi** and made available via Swagger UI.  
-An HTML version is hosted using [raw.githack.com](https://raw.githack.com), providing a live view of the API specification, here: 
+An HTML version is hosted using [raw.githack.com](https://raw.githack.com), providing a live view of the API specification, here:
+ 🌐 [Api-docs.html](https://rawcdn.githack.com/codeurjc-students/2025-PixelForum/65f151c814cd4a7f095f490b6a65a9393d05e418/docs/api/api-docs.html)
 
 ---
 
@@ -85,50 +86,47 @@ The goal of these quality controls is to ensure reliability, security, maintaina
 The backend (Spring Boot) includes automated tests that validate business logic, data access, and API behavior.
 
 ### ✔️ Types of backend tests
-- **Unit tests (JUnit 5):** Validate isolated services and utility classes.  
-- **Integration tests (Spring Boot Test + H2):** Validate repositories, services, and controllers working together.  
-- **REST API tests (MockMvc):** Ensure each API endpoint behaves as expected.
+- **Unit tests (JUnit 5 + Mockito):** Validate isolated service logic and utility classes without loading the Spring context. Dependencies such as repositories are mocked to ensure that only the business logic is tested in complete isolation.
+- **Integration tests (Spring Boot Test):** Validate the interaction between services and repositories within a full Spring application context. These tests run against the real MySQL database used in the development environment, ensuring that persistence operations and service behavior function correctly under realistic conditions.
+
 
 ### 📊 Backend testing statistics
-- **Total tests:** 
-- **Passing:** 
-- **Estimated coverage:**  
-  - Services: **~%**
-  - Controllers: **~%**
-
-*Backend test screenshot here*
+Captura
 
 
 ## Client tests (Frontend)
 The frontend (Angular) includes unit and integration tests that validate UI logic and service communication.
 
 ### ✔️ Types of client tests
-- **Unit tests (Karma + Jasmine):** Validate Angular components and services with mocks.  
-- **Integration tests:** Validate templates, inputs, and data bindings.
+- **Unit tests (Karma + Jasmine):** Validate Angular components and services using Angular’s TestBed with mocked dependencies. These tests verify component logic, service behavior, and simplified DOM interactions in isolation, without relying on external modules or real network calls.
+- **Integration tests (Real API integration):** Validate the behavior of frontend services by performing real HTTP requests against the backend API. These tests ensure that the Angular application communicates correctly with the Spring Boot backend, verifying data flow and real network integration.
 
 ### 📊 Frontend testing statistics
-- **Total tests:** 
-- **Passing:** 
-- **Estimated coverage:**  
-  - Components: **~%**
-  - Services: **~%**
+Captura
 
-*Frontend screenshot here*
+
+## System Tests
+System tests validate the behavior of the application as a whole, combining the frontend, backend, and data layers under real execution conditions. These tests do not isolate components; instead, they verify the end-to-end functionality from the user perspective or through full backend interactions. Two technologies are used in this project for system testing: Selenium WebDriver for UI-level tests and RestAssured for backend API-level system verification.
+
+## Static Code Analysis (SonarQube)
+Static code analysis was performed using SonarQube, a tool that inspects the source code without executing it. SonarQube helps to identify potential bugs, code smells, security vulnerabilities, and maintainability issues, providing an overall quality assessment of the project.
 
 # 6️⃣ Development Process
+The development process followed an iterative and incremental approach, adhering to the principles of the Agile manifesto. Some best practices from Extreme Programming (XP) and Kanban were applied to improve code quality, collaboration, and task management. Although Scrum was not formally implemented, the process emphasizes continuous improvement, frequent deliveries, and incremental progress.
 
-The development followed an **iterative and incremental** process inspired by **Agile principles**, emphasizing short development cycles, user feedback, and continuous improvement.  
+The development followed an **iterative and incremental** process inspired by **Agile principles** and **Extreme Programming (XP)** practices, focusing on short development cycles and continuous improvement.  
 
 ## 🧠 Task Management
 - Tasks tracked through **GitHub Issues**.  
-- Visual workflow managed via **GitHub Projects** (Kanban board).  
+- Visual workflow managed via **GitHub Projects** (Kanban board).
+  Captura
 
 ## 🌿 Version Control
 - Repository managed with **Git**.  
 - Branching strategy:  
   - `main` → stable release branch  
-  - `develop` → integration branch  
-  - `feature/*` → new features or experiments  
+  - `feature` → branch for developing new features; merged into main after review and testing
+  - `fix` → branch for bug fixes; merged into main once the issue is resolved and tested
 - **Metrics:** ~300 commits and 20+ branches over development lifecycle.  
 
 ## ⚙️ Continuous Integration / Deployment
@@ -139,9 +137,65 @@ The development followed an **iterative and incremental** process inspired by **
 
 # 7️⃣ Execution & Release
 
-## ▶️ Running the Application
+## 7.1 **Clone the repository:**
+To start working with the project, clone the Git repository using the following command:
+```bash
+git clone https://github.com/username/pixelforum.git
+cd pixelforum
+```
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/username/pixelforum.git
-   cd pixelforum
+## 7.2 **Execution**
+### Backend (Spring Boot)
+1. Ensure that the MySQL database is running locally. For example, start the MySQL server and make sure the database dbpixelforum exists, or create it using:
+```sql
+CREATE DATABASE dbpixelforum;
+```
+2. Configure your application.properties file with the correct database credentials.
+3. Run the Spring Boot backend using Maven:
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+The backend server will start at:
+[http://localhost:8080](http://localhost:8080)
+
+### Frontend (Angular)
+1. Navigate to the frontend directory:
+```bash
+cd frontend
+```
+2. Run the Angular application:
+```bash
+npm start
+```
+The frontend will be available at:
+[http://localhost:4200](http://localhost:4200)
+It will communicate with the backend API at [http://localhost:8080](http://localhost:8080).
+
+## 7.3 Using Development Tools
+IDE / Editor: The project can be edited using IntelliJ IDEA or Visual Studio Code. These environments provide syntax highlighting, debugging tools, and integration with Git.
+Postman / REST Client: Use Postman or similar tools to interact with the backend REST API. The provided Postman collection includes examples for all API endpoints with sample data. Import the file Postman_collection.json to send GET, POST, PUT, and DELETE requests easily.
+
+## 7.4 Running Tests
+### Backend
+Unit Tests:
+```bash
+mvn test -Dgroups=unit
+```
+Integration Tests: 
+```bash
+mvn test -Dgroups=integration
+```
+System / E2E Tests: Execute Selenium tests for the UI (client) and RestAssured tests for the API:
+```bash
+mvn test -Dgroups=e2e
+```
+To execute all backend and system test at once use:
+```bash
+mvn test
+```
+
+### Frontend
+Unit & Integration Tests: Run Angular tests using Karma + Jasmine:
+ng test
+API Integration Tests: The Angular service tests call the real backend API. Ensure the backend is running before executing these tests.
