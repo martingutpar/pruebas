@@ -1,3 +1,6 @@
+Development Guide
+# Index
+-(Introduction)[Introduction]
 # 1️⃣ Introduction
 
 **PixelForum** is a web application designed as an interactive forum for video game enthusiasts 🎮.  
