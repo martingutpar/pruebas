@@ -1,7 +1,14 @@
 # Development Guide
-# Index
--[Introduction](#2️⃣-Execution-Technologies)
-# 1️⃣ Introduction
+## Index
+- [Introduction](##1️⃣-Introduction)
+- [Execution Technologies](##2️⃣-Execution-Technologies)
+- [Tools](##3️⃣-Tools)
+- [Architecture](##4️⃣-Architecture)
+- [Quality Control](##5️⃣-Quality-Control)
+- [Development Process](##6️⃣-Development-Process)
+- [Execution & Release](##7️⃣-Execution-&-Release)
+  
+## 1️⃣ Introduction
 
 **PixelForum** is a web application designed as an interactive forum for video game enthusiasts 🎮.  
 Its architecture follows a **Single Page Application (SPA)** model , where the client-side interface is dynamically rendered by the browser while the backend provides data through API REST.  
@@ -16,7 +23,7 @@ Continuous Integration and Deployment (CI/CD) pipelines are configured through *
 
 ---
 
-## 📋 Summary Table
+### 📋 Summary Table
 
 | Category | Description |
 |----------|-------------|
@@ -29,7 +36,7 @@ Continuous Integration and Deployment (CI/CD) pipelines are configured through *
 
 ---
 
-# 2️⃣ Execution Technologies
+## 2️⃣ Execution Technologies
 
 - **Angular** — Framework for building the SPA interface and managing client-side routing. It consumes REST endpoints to render data dynamically. 🌐 [Angular](https://angular.dev)
   
@@ -47,7 +54,7 @@ Continuous Integration and Deployment (CI/CD) pipelines are configured through *
 
 ---
 
-# 3️⃣ Tools
+## 3️⃣ Tools
   
 - **Visual Studio Code (VS Code):** Main IDE used for developing both frontend (Angular) and backend (Spring Boot) modules, supporting extensions for Java, Docker, and Git integration. 🌐 [Visual Studio Code](https://code.visualstudio.com)
 
@@ -61,9 +68,9 @@ Continuous Integration and Deployment (CI/CD) pipelines are configured through *
 
 ---
 
-# 4️⃣ Architecture
+## 4️⃣ Architecture
 
-## Deployment Architecture
+### Deployment Architecture
 
 The application follows a **microservices-inspired deployment architecture**, with independent processes for the backend, frontend, and database:
 - 🖥️ **Frontend (Angular)** — Runs as a separate process, served via **Node.js**, consuming the backend REST API.
@@ -72,7 +79,7 @@ The application follows a **microservices-inspired deployment architecture**, wi
 
 All services communicate using standard protocols: the frontend and backend interact via **REST over HTTPS** (backend on port **8443**, frontend on port **4200**), while the backend connects to the database using **TCP/IP** (MySQL on port **3306**).
 
-## API REST
+### API REST
 
 The REST API documentation is automatically generated using **springdoc-openapi** and made available via Swagger UI.  
 An HTML version is hosted using [raw.githack.com](https://raw.githack.com), providing a live view of the API specification, here:
@@ -80,51 +87,51 @@ An HTML version is hosted using [raw.githack.com](https://raw.githack.com), prov
 
 ---
 
-# 5️⃣ Quality Control
+## 5️⃣ Quality Control
 
 This section describes the quality assurance strategy applied to **PixelForum**, including automated tests on both backend and frontend, system-level tests, API validation, and static code analysis using **SonarQube**.  
 The goal of these quality controls is to ensure reliability, security, maintainability, and functional correctness across all components of the SPA + REST API architecture.
 
-## Server tests (Backend)
+### Server tests (Backend)
 The backend (Spring Boot) includes automated tests that validate business logic, data access, and API behavior.
 
-### ✔️ Types of backend tests
+#### ✔️ Types of backend tests
 - **Unit tests (JUnit 5 + Mockito):** Validate isolated service logic and utility classes without loading the Spring context. Dependencies such as repositories are mocked to ensure that only the business logic is tested in complete isolation.
 - **Integration tests (Spring Boot Test):** Validate the interaction between services and repositories within a full Spring application context. These tests run against the real MySQL database used in the development environment, ensuring that persistence operations and service behavior function correctly under realistic conditions.
 
 
-### 📊 Backend testing statistics
+#### 📊 Backend testing statistics
 Captura
 
 
-## Client tests (Frontend)
+### Client tests (Frontend)
 The frontend (Angular) includes unit and integration tests that validate UI logic and service communication.
 
-### ✔️ Types of client tests
+#### ✔️ Types of client tests
 - **Unit tests (Karma + Jasmine):** Validate Angular components and services using Angular’s TestBed with mocked dependencies. These tests verify component logic, service behavior, and simplified DOM interactions in isolation, without relying on external modules or real network calls.
 - **Integration tests (Real API integration):** Validate the behavior of frontend services by performing real HTTP requests against the backend API. These tests ensure that the Angular application communicates correctly with the Spring Boot backend, verifying data flow and real network integration.
 
-### 📊 Frontend testing statistics
+#### 📊 Frontend testing statistics
 Captura
 
 
-## System Tests
+### System Tests
 System tests validate the behavior of the application as a whole, combining the frontend, backend, and data layers under real execution conditions. These tests do not isolate components; instead, they verify the end-to-end functionality from the user perspective or through full backend interactions. Two technologies are used in this project for system testing: Selenium WebDriver for UI-level tests and RestAssured for backend API-level system verification.
 
-## Static Code Analysis (SonarQube)
+### Static Code Analysis (SonarQube)
 Static code analysis was performed using SonarQube, a tool that inspects the source code without executing it. SonarQube helps to identify potential bugs, code smells, security vulnerabilities, and maintainability issues, providing an overall quality assessment of the project.
 
-# 6️⃣ Development Process
+## 6️⃣ Development Process
 The development process followed an iterative and incremental approach, adhering to the principles of the Agile manifesto. Some best practices from Extreme Programming (XP) and Kanban were applied to improve code quality, collaboration, and task management. Although Scrum was not formally implemented, the process emphasizes continuous improvement, frequent deliveries, and incremental progress.
 
 The development followed an **iterative and incremental** process inspired by **Agile principles** and **Extreme Programming (XP)** practices, focusing on short development cycles and continuous improvement.  
 
-## 🧠 Task Management
+### 🧠 Task Management
 - Tasks tracked through **GitHub Issues**.  
 - Visual workflow managed via **GitHub Projects** (Kanban board).
   Captura
 
-## 🌿 Version Control
+### 🌿 Version Control
 - Repository managed with **Git**.  
 - Branching strategy:  
   - `main` → stable release branch  
@@ -132,23 +139,23 @@ The development followed an **iterative and incremental** process inspired by **
   - `fix` → branch for bug fixes; merged into main once the issue is resolved and tested
 - **Metrics:** ~300 commits and 20+ branches over development lifecycle.  
 
-## ⚙️ Continuous Integration / Deployment
+### ⚙️ Continuous Integration / Deployment
 - **CI pipeline:** Runs automated tests, builds Docker images, and performs static analysis.  
 - **CD pipeline:** Deploys the latest stable version using Docker Compose.  
 
 ---
 
-# 7️⃣ Execution & Release
+## 7️⃣ Execution & Release
 
-## 7.1 **Clone the repository:**
+### 7.1 **Clone the repository:**
 To start working with the project, clone the Git repository using the following command:
 ```bash
 git clone https://github.com/username/pixelforum.git
 cd pixelforum
 ```
 
-## 7.2 **Execution**
-### Backend (Spring Boot)
+### 7.2 **Execution**
+#### Backend (Spring Boot)
 1. Ensure that the MySQL database is running locally. For example, start the MySQL server and make sure the database dbpixelforum exists, or create it using:
 ```sql
 CREATE DATABASE dbpixelforum;
@@ -162,7 +169,7 @@ cd backend
 The backend server will start at:
 [http://localhost:8080](http://localhost:8080)
 
-### Frontend (Angular)
+#### Frontend (Angular)
 1. Navigate to the frontend directory:
 ```bash
 cd frontend
@@ -175,12 +182,12 @@ The frontend will be available at:
 [http://localhost:4200](http://localhost:4200)
 It will communicate with the backend API at [http://localhost:8080](http://localhost:8080).
 
-## 7.3 Using Development Tools
+### 7.3 Using Development Tools
 IDE / Editor: The project can be edited using IntelliJ IDEA or Visual Studio Code. These environments provide syntax highlighting, debugging tools, and integration with Git.
 Postman / REST Client: Use Postman or similar tools to interact with the backend REST API. The provided Postman collection includes examples for all API endpoints with sample data. Import the file Postman_collection.json to send GET, POST, PUT, and DELETE requests easily.
 
-## 7.4 Running Tests
-### Backend
+### 7.4 Running Tests
+#### Backend
 Unit Tests:
 ```bash
 mvn test -Dgroups=unit
@@ -198,7 +205,7 @@ To execute all backend and system test at once use:
 mvn test
 ```
 
-### Frontend
+#### Frontend
 Unit & Integration Tests: Run Angular tests using Karma + Jasmine:
 ng test
 API Integration Tests: The Angular service tests call the real backend API. Ensure the backend is running before executing these tests.
