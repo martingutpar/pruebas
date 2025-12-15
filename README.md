@@ -1,12 +1,12 @@
-# Development Guide
-## Index
-- [Introduction](##1️⃣-Introduction)
-- [Execution Technologies](##2️⃣-Execution-Technologies)
-- [Tools](##3️⃣-Tools)
-- [Architecture](##4️⃣-Architecture)
-- [Quality Control](##5️⃣-Quality-Control)
-- [Development Process](##6️⃣-Development-Process)
-- [Execution & Release](##7️⃣-Execution-&-Release)
+# 📘 Development Guide
+## 📑 Index
+- [Introduction](#1️⃣-Introduction)
+- [Execution Technologies](#2️⃣-Execution-Technologies)
+- [Tools](#3️⃣-Tools)
+- [Architecture](#4️⃣-Architecture)
+- [Quality Control](#5️⃣-Quality-Control)
+- [Development Process](#6️⃣-Development-Process)
+- [Execution & Release](#7️⃣-Execution-&-Release)
   
 ## 1️⃣ Introduction
 
