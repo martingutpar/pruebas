@@ -122,9 +122,7 @@ System tests validate the behavior of the application as a whole, combining the 
 Static code analysis was performed using SonarQube, a tool that inspects the source code without executing it. SonarQube helps to identify potential bugs, code smells, security vulnerabilities, and maintainability issues, providing an overall quality assessment of the project.
 
 ## 6️⃣ Development Process
-The development process followed an iterative and incremental approach, adhering to the principles of the Agile manifesto. Some best practices from Extreme Programming (XP) and Kanban were applied to improve code quality, collaboration, and task management. Although Scrum was not formally implemented, the process emphasizes continuous improvement, frequent deliveries, and incremental progress.
-
-The development followed an **iterative and incremental** process inspired by **Agile principles** and **Extreme Programming (XP)** practices, focusing on short development cycles and continuous improvement.  
+The development process followed an iterative and incremental approach, based on the principles of the Agile manifesto. Some best practices from Extreme Programming (XP) and Kanban were applied to improve code quality, collaboration, and task management. Although Scrum was not formally implemented, the process emphasizes continuous improvement, frequent deliveries, and incremental progress.
 
 ### 🧠 Task Management
 - Tasks tracked through **GitHub Issues**.  
