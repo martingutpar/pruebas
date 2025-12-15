@@ -149,7 +149,6 @@ The development process followed an iterative and incremental approach, based on
 To start working with the project, clone the Git repository using the following command:
 ```bash
 git clone https://github.com/username/pixelforum.git
-cd pixelforum
 ```
 
 ### 7.2 **Execution**
@@ -162,7 +161,7 @@ CREATE DATABASE dbpixelforum;
 3. Run the Spring Boot backend using Maven:
 ```bash
 cd backend
-./mvnw spring-boot:run
+mvn spring-boot:run
 ```
 The backend server will start at:
 [http://localhost:8080](http://localhost:8080)
@@ -181,8 +180,9 @@ The frontend will be available at:
 It will communicate with the backend API at [http://localhost:8080](http://localhost:8080).
 
 ### 7.3 Using Development Tools
-IDE / Editor: The project can be edited using IntelliJ IDEA or Visual Studio Code. These environments provide syntax highlighting, debugging tools, and integration with Git.
-Postman / REST Client: Use Postman or similar tools to interact with the backend REST API. The provided Postman collection includes examples for all API endpoints with sample data. Import the file Postman_collection.json to send GET, POST, PUT, and DELETE requests easily.
+- IDE / Editor: The project can be edited using IntelliJ IDEA or Visual Studio Code. These environments provide syntax highlighting, debugging tools, and integration with Git.
+
+- Postman / REST Client: Use Postman or similar tools to interact with the backend REST API. The provided Postman collection includes examples for all API endpoints with sample data. Import the file Postman_collection.json to send GET, POST, PUT, and DELETE requests easily.
 
 ### 7.4 Running Tests
 #### Backend
@@ -194,16 +194,30 @@ Integration Tests:
 ```bash
 mvn test -Dgroups=integration
 ```
-System / E2E Tests: Execute Selenium tests for the UI (client) and RestAssured tests for the API:
+System / E2E Tests:
 ```bash
 mvn test -Dgroups=e2e
 ```
-To execute all backend and system test at once use:
+To execute all backend and system tests at once use:
 ```bash
 mvn test
 ```
 
 #### Frontend
-Unit & Integration Tests: Run Angular tests using Karma + Jasmine:
+Unit Tests:
+```bash
+npm run test:unit
+```
+Integration Tests: *the application most be running in order to execute the tests*
+```bash
+npm run test:integartion
+```
+System / E2E Tests: *the application most be running in order to execute the tests*
+```bash
+cd backend
+mvn -Dtest=UISystemTest test
+```
+To execute all frontend tests at once use:
+```bash
 ng test
-API Integration Tests: The Angular service tests call the real backend API. Ensure the backend is running before executing these tests.
+```
