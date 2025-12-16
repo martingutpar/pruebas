@@ -1,6 +1,6 @@
 # PixelForum
 ## 📑 Index
-- [Summary](#📝-Summary)
+- [Summary](#-Summary)
 - [Objectives](#🎯-Objectives)
 - [Methodology](#🛠️-Methodology)
 - [Detailed-Functionalities](#📋-Detailed-Functionalities)
