@@ -6,7 +6,7 @@
 - [Architecture](#4️⃣-Architecture)
 - [Quality Control](#5️⃣-Quality-Control)
 - [Development Process](#6️⃣-Development-Process)
-- [Execution & Release](#7️⃣-Execution-&-Release)
+- [Execution & Release](#7️⃣-Execution--Release)
   
 ## 1️⃣ Introduction
 
