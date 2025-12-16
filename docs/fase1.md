@@ -2,10 +2,10 @@
 ## 📑 Index
 - [Summary](#-Summary)
 - [Objectives](#-Objectives)
-- [Methodology](#-Methodology)
+- [Methodology](#🛠️-Methodology)
 - [Detailed-Functionalities](#-Detailed-Functionalities)
-- [Analysis)](#-Analysis)
-- [Tracking / Progress](#-Tracking-/-Progress)
+- [Analysis](#-Analysis)
+- [Tracking / Progress](#-Tracking--Progress)
 - [Author](#-Author)
 
 ## 📝 Summary
