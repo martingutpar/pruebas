@@ -1,12 +1,12 @@
 # PixelForum
 ## 📑 Index
 - [Summary](#-Summary)
-- [Objectives](#🎯-Objectives)
-- [Methodology](#🛠️-Methodology)
-- [Detailed-Functionalities](#📋-Detailed-Functionalities)
-- [Analysis)](#📑-Analysis)
-- [Tracking / Progress](#📌-Tracking-/-Progress)
-- [Author](#👤-Author)
+- [Objectives](#-Objectives)
+- [Methodology](#-Methodology)
+- [Detailed-Functionalities](#-Detailed-Functionalities)
+- [Analysis)](#-Analysis)
+- [Tracking / Progress](#-Tracking-/-Progress)
+- [Author](#-Author)
 
 ## 📝 Summary
 🎮 This video game forum web application is designed for players 👾 who want to share their experiences, discuss their favorite titles, and connect with other gamers around the world 🌍.
