@@ -2,7 +2,7 @@
 ## 📑 Index
 - [Summary](#-Summary)
 - [Objectives](#-Objectives)
-- [Methodology](#Methodology)
+- [Methodology](#%EF%B8%8F-methodology)
 - [Detailed-Functionalities](#-Detailed-Functionalities)
 - [Analysis](#-Analysis)
 - [Tracking / Progress](#-Tracking--Progress)
