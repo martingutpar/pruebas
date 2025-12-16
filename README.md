@@ -101,21 +101,21 @@ The backend (Spring Boot) includes automated tests that validate business logic,
 
 
 #### 📊 Backend testing statistics
-Captura
-
-
-### Client tests (Frontend)
-The frontend (Angular) includes unit and integration tests that validate UI logic and service communication.
+```bash
+mvn test
+```
+###### Client tests (Frontend)e frontend (Angular) includes unit and integration tests that validate UI logic and service communication.
 
 #### ✔️ Types of client tests
 - **Unit tests (Karma + Jasmine):** Validate Angular components and services using Angular’s TestBed with mocked dependencies. These tests verify component logic, service behavior, and simplified DOM interactions in isolation, without relying on external modules or real network calls.
 - **Integration tests (Real API integration):** Validate the behavior of frontend services by performing real HTTP requests against the backend API. These tests ensure that the Angular application communicates correctly with the Spring Boot backend, verifying data flow and real network integration.
 
 #### 📊 Frontend testing statistics
-Captura
+```bash
+npm run test:coverage
+```
 
-
-### System Tests
+## System Tests
 System tests validate the behavior of the application as a whole, combining the frontend, backend, and data layers under real execution conditions. These tests do not isolate components; instead, they verify the end-to-end functionality from the user perspective or through full backend interactions. Two technologies are used in this project for system testing: Selenium WebDriver for UI-level tests and RestAssured for backend API-level system verification.
 
 ### Static Code Analysis (SonarQube)
@@ -126,8 +126,7 @@ The development process followed an iterative and incremental approach, based on
 
 ### 🧠 Task Management
 - Tasks tracked through **GitHub Issues**.  
-- Visual workflow managed via **GitHub Projects** (Kanban board).
-  Captura
+- Visual workflow managed via **GitHub Projects** (Kanban board). *Captura*
 
 ### 🌿 Version Control
 - Repository managed with **Git**.  
